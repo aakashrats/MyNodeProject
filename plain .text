@@ -2,19 +2,31 @@ My project
 Name of project is Realtime piza order  tracker app using NodeJS expresJS 
   Folder structure   lorebel framework (PHP)
 
-1. create directory structure
-2. create a NPM project and instal all dependanicies
+ create directory structure
+ create a NPM project and instal all dependanicies
     - dependencies
       -express
       -ejs express-ejs-layouts
     - Dev dependencies
      -nodemon
-3. create Express Server - Create a Server.js file
-4. create Home page using Html and css
+ create Express Server - Create a Server.js file
+ Git Setup and first commit
+ Install Larvel Mix
+   - setup js and scss
+ create Home page using Html and css
    - inclde tailvind css
-5. create Cart page
+ create Cart page
   -order summary section
   -empty cart section
-6. create order controller and link it in sercer.js
-7. create order view table for customer and admin 
-
+ create order controller and link it in sercer.js
+ create order view table for customer and admin 
+ create order single page with Status 
+ create login page with route
+ create register page with route
+ build register crud
+   - dependanicies express-flash express-session cookie-parser dotenv
+   - status code articles http://www.restapitutorial.com/httpstatuscodes.html
+   - database connection. dependanicies mongoose
+   build login uisng paasport
+   -Install dependanicies passport passport-local express-session
+   
