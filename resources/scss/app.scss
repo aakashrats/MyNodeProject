@@ -36,3 +36,39 @@ section.hero{
     color: $pure-colar;
 }
 };
+.btn-primary {
+  background: $primary-colar;
+  transition: $smooth;
+  &:hover {
+    background: $primary-hover-colar;
+}
+};
+
+section.cart{
+  background: $secondary-colar;
+  .amount{
+    color: $primary-colar;
+  }
+};
+
+section.login {
+  background: $secondary-colar;
+  min-height: calc(100vh - 86px);
+  a{
+    color: $primary-colar;
+    &:hover {
+      color: $primary-hover-colar
+         }
+ }
+};
+section.Register {
+  background: $secondary-colar;
+  min-height: calc(100vh - 86px);
+  a{
+    color: $primary-colar;
+    &:hover {
+      color: $primary-hover-colar
+         }
+ }
+ 
+};
