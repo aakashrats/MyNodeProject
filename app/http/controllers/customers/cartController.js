@@ -1,11 +1,16 @@
 function cartController(){
     return{
-         
-       index (req, res){
-              
-             res.render('customers/cart')
 
-       },
+        index(req, res) {
+            res.render('customers/cart', { session: req.session });
+          },
+          
+         
+    //    index (req, res){
+              
+    //          res.render('customers/cart',{cart:req.session.cart})
+
+    //    },
 
        update(req, res){
 
@@ -32,7 +37,7 @@ function cartController(){
                      totalPrice: 0
 
             };
-
+   
         }
 
         let cart= req.session.cart;
@@ -49,9 +54,9 @@ function cartController(){
 
             };
             
-            cart.totalQty = cart.totalQty + 1;
-
-            cart.totalPrice += parseInt(req.body.price);
+           cart.totalQty = cart.totalQty + 1;
+                  
+           cart.totalPrice += parseInt(req.body.price);
             
             //cart.totalPrice += cart.items[req.body._id].item.price;
             
@@ -59,7 +64,7 @@ function cartController(){
              
         } else {
 
-                 cart.items[req.body._id].qty += 1;
+                 cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1;
              
                  cart.totalQty = cart.totalQty + 1
 
@@ -77,5 +82,6 @@ function cartController(){
        }
    
     };
+
    
    module.exports = cartController;
