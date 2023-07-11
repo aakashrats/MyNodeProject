@@ -22,6 +22,8 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 const passport = require('passport');
 
+const Emitter = require('events');
+
 
 
 
@@ -68,6 +70,11 @@ const MongoStore = new MongoDBStore({
              mongooseConnection: mongoose.conn,
 
             })
+// Event Emitter
+
+const eventEmitter = new Emitter();
+
+app.set('eventEmitter', eventEmitter);
 
 
 // Session config
@@ -91,6 +98,8 @@ app.use(
 // passport config 
 
 const passportInit = require('./app/config/passport');
+//const { Server } = require('http');
+//const { Socket } = require('socket.io');
 
 passportInit(passport);
 
@@ -141,10 +150,43 @@ app.set('view engine', 'ejs');
 
 
 require('./routes/web')(app);
+// app.use((req, res) => {
+//   res.status(404).render('errors/404')
+// })
 
-app.listen(PORT,() => {
+
+const server = app.listen(PORT,() => {
   
     console.log(`listening on port ${PORT}`);
    
 });
 
+// socket 
+
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+
+  // join 
+
+  socket.on('join', (orderId) => {
+   
+    socket.join(orderId)
+    
+  })
+
+
+});
+
+
+eventEmitter.on('orderUpdated', (data) => {
+
+  io.to(`order_${data.id}`).emit('orderUpdated', data);
+
+
+});
+
+eventEmitter.on('orderPlaced', (data) => {
+
+  io.to('adminRoom').emit('orderPlaced', data);
+})
