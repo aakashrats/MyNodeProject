@@ -6,6 +6,8 @@ import { initAdmin } from './admin';
 
 import moment from "moment";
 
+import { initStripe } from "./stripe";
+
 
 
 
@@ -16,6 +18,8 @@ let cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
 
     axios.post('/update-cart', pizza).then(res => {
+
+   //   if (res && res.data && res.data.totalQty) {
         
       cartCounter.innerText = res.data.totalQty
 
@@ -31,6 +35,7 @@ function updateCart(pizza) {
 
         text: 'Item added to cart'
       }).show();
+    
 
 }).catch(err => {
     
@@ -52,6 +57,7 @@ function updateCart(pizza) {
 }
 
 
+
 addToCart.forEach((btn) => {
 
     btn.addEventListener('click',(e) => {
@@ -64,6 +70,7 @@ addToCart.forEach((btn) => {
 });
 
 // Remove alert message after X seconds
+
 
 const alertMsg = document.querySelector('#success-alert');
 
@@ -98,12 +105,8 @@ function updateStatus(order) {
 
     status.classList.remove('step-completed');
     status.classList.remove('current');
+
   });
-
-
-
-
-
 
   let stepCompleted = true;
 
@@ -133,7 +136,13 @@ function updateStatus(order) {
   });
 }
 
-updateStatus(order);
+if (order) {
+  updateStatus(order);
+  console.log(order);
+}
+//updateStatus(order);
+
+initStripe();
 
 //socket
 
@@ -150,11 +159,9 @@ socket.emit('join', `order_${order._id}`)
 
 let adminAreaPath = window.location.pathname
 
-//console.log(adminAreaPath) 
-
 if(adminAreaPath.includes('admin')) {
-//admin
-initAdmin(socket)
+   //admin
+  initAdmin(socket)
   socket.emit('join', 'adminRoom')
 }
 

@@ -4,31 +4,36 @@
 
 
 body {
+
   font-family: 'lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   color: $dark-colar;
  
 }
+
 nav li:last-child a {
+  
   background: $primary-colar;
   &:hover {
     background-color: $primary-hover-colar;
-  
-}
+  }
 }
 
 nav li a{
   transition: $smooth;
-    &:hover {
-  color: $primary-colar;
-}
+  &:hover {
+       color: $primary-colar;
+    }
 };
+
 section.hero{
   background: $secondary-colar;
-};
+}
+
 .size{
   background: $secondary-colar;
-};
+}
+
 .add-to-cart{
   border: 2px solid $primary-colar;
   color: $primary-colar;
@@ -40,15 +45,17 @@ section.hero{
   }
 
   &:focus {
-    outline: none;}
+    outline: none;
+  }
  
 };
+
 .btn-primary {
   background: $primary-colar;
   transition: $smooth;
   &:hover {
     background: $primary-hover-colar;
-}
+   }
 };
 
 section.cart{
@@ -62,12 +69,12 @@ section.login {
   background: $secondary-colar;
   min-height: calc(100vh - 86px);
   a{
-    color: $primary-colar;
-    &:hover {
-      color: $primary-hover-colar
-         }
- }
-};
+      color: $primary-colar;
+      &:hover {
+         color: $primary-hover-colar
+      }
+   }
+}
 section.Register {
   background: $secondary-colar;
   min-height: calc(100vh - 86px);
@@ -78,13 +85,13 @@ section.Register {
          }
  }
  
-};
+}
 
 .noty_theme__mint {
  
   border-radius: 50px!important;
-
   padding-left: 8px!important;
+
 }
 
 a.link {
@@ -96,8 +103,8 @@ a.link {
 section.status {
 
   background: $secondary-colar;
-
   min-height: calc(100vh - 86px);
+
 }
 
 .status-box {
@@ -107,19 +114,21 @@ section.status {
 }
 
 .status-box ul {
+
   margin-left: 84px;
+
 }
 
 .status-box ul li span {
-
+ 
   position: relative;
   padding-left: 20px;
+
 }
 
 //dots
-
 .status-box ul li span:after {
-
+  
   content: '';
   position: absolute;
   left: -10px;
@@ -213,8 +222,51 @@ section.status {
 
 .status-box ul li small {
   float: right;
-
   font-size: 14px;
-
   margin-top: 8px;
+}
+
+@media(max-width:1060px) {
+  .container {
+      max-width: 90%;
+  }
+  table {
+     display: block;
+     overflow-x: auto;
+     white-space: nowrap;
+  }
+}
+
+@media(max-width: 768px) {
+  .status-box ul li span:before {
+      font-size: 34px;
+  }
+}
+
+.StripeElement {
+  box-sizing: border-box;
+  width: 50%;
+  margin-left: auto;
+  height: 40px;
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
 }

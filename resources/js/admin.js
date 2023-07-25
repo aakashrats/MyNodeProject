@@ -46,6 +46,8 @@ import Noty from 'noty';
 
     return orders.map(order => {
 
+        const customerName = order.customerId ? order.customerId.name : 'N/A';
+
         return ` 
         
         <tr>
@@ -91,12 +93,16 @@ import Noty from 'noty';
                 </td>
                 <td class="border px-4 py-2">
                     ${ order.paymentStatus ? 'paid' : 'Not paid' }
+                  
                 </td>
             </tr>
           ` ; 
     }).join('');
 
+   
+
 }
+
 
 //socket
 
@@ -112,8 +118,6 @@ import Noty from 'noty';
         orderTableBody.innerHTML = generateMarkup(orders)
     })
 
-   }
-
-
+   }                    
 
 

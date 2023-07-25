@@ -13,10 +13,12 @@ function orderController() {
           .exec();
 
         if (req.xhr) {
+          //console.log(orders);
           return res.json(orders);
+
         } else {
           res.render('admin/orders', { orders });
-          //return res.render('admin/orders')
+         // return res.render('admin/orders')
         }
       } catch (err) {
         console.log(err);

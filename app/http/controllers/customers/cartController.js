@@ -1,8 +1,11 @@
+const { json } = require("express")
+
 function cartController(){
     return{
 
         index(req, res) {
-            res.render('customers/cart', { session: req.session });
+           res.render('customers/cart', { session: req.session });
+         // res.render('customers/cart', { users: users });
           },
           
          

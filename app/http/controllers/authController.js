@@ -1,7 +1,8 @@
-const passport = require('passport');
 const User = require('../../models/user');
 
 const bcrypt = require('bcrypt');
+
+const passport = require('passport');
 
 
 function authController(){
